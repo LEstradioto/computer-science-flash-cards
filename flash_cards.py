@@ -11,9 +11,9 @@ pathDB='db'
 def load_config():
     app.config.update(dict(
         DATABASE=os.path.join(app.root_path, pathDB, nameDB),
-        SECRET_KEY='development key',
-        USERNAME='admin',
-        PASSWORD='default'
+        SECRET_KEY=os.environ.get('SECRET_KEY', 'development key'),
+        USERNAME=os.environ.get('USERNAME', 'admin'),
+        PASSWORD=os.environ.get('PASSWORD', 'default')
     ))
     app.config.from_envvar('CARDS_SETTINGS', silent=True)
 

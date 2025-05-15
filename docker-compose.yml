@@ -6,7 +6,11 @@ services:
     build: .
     ports:
       - 8000:8000
+    environment:
+      - USERNAME=${USERNAME-admin}
+      - PASSWORD=${PASSWORD-default}
+      - SECRET_KEY=${SECRET_KEY-your-secure-secret-key-here}
     volumes:
       - ./cards-empty.db:/src/db/cards.db
-#      - ./cards-jwasham-extreme.db:/src/db/cards.db
-#      - ./cards-jwasham.db:/src/db/cards.db
+      - ./cards-jwasham-extreme.db:/src/db/cards.db
+      - ./cards-jwasham.db:/src/db/cards.db
