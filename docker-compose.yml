@@ -4,8 +4,6 @@ services:
 
   cs-flash-cards:
     build: .
-    ports:
-      - 8000:8000
     environment:
       - USERNAME=${USERNAME-admin}
       - PASSWORD=${PASSWORD-default}
